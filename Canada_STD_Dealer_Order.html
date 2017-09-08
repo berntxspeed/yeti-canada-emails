@@ -124,7 +124,7 @@
 													<td style="border:0;padding:0 0 0 14px;color:#e4e4e4;line-height:18px;font-size:11.5px;font-family:Arial; height: 91px; width: 240px;" align="left" height="91px" valign="middle" width="240px">
 														Questions about your order?<br>
 														Call us at <a href="tel:512.394.0222">512.394.0222</a> or email
-														<a style="text-decoration:none;color:#f3f3f3;font-weight:bold" title="Contact Us by Email" href="mailto:YETI%20Sales%20%3Csales@yeti.com%3E?subject=YETI+Customer+Service+Request" style="color:#515151;font-weight:bold">sales@yeti.com</a><br>
+														<a style="text-decoration:none;color:#f3f3f3;font-weight:bold" title="Contact Us by Email" href="mailto:YETI%20Sales%20%3Ccanadasales@yeti.com%3E?subject=YETI+Customer+Service+Request" style="color:#515151;font-weight:bold">canadasales@yeti.com</a><br>
 														Mon-Fri 8 AM - 5 PM CST
 													</td>
 												</tr>
@@ -421,7 +421,7 @@ UpdateDE("FromSAP_Order",2,"order_id",@order_id,"line_number",@line_number,"cons
 																						%%[ if empty(@prod_price) then ]%%
 																							&nbsp;
 																						%%[ else ]%%
-																							<span>%%=FormatCurrency(@prod_price,"en-US")=%%</span>
+																							<span>%%=FormatCurrency(@prod_price,"en-CA")=%% CAD</span>
 																						%%[ endif ]%%
 																					</td>
 
@@ -430,14 +430,14 @@ UpdateDE("FromSAP_Order",2,"order_id",@order_id,"line_number",@line_number,"cons
 																					</td>
 																					%%[if @total_discounts > 0 then]%%
 																					<td style="font-family:Arial;font-size:10px;padding:0 0 0 0;background-color:#ffffff;color:#000000;letter-spacing:1px;font-weight:normal" align="center" valign="middle">
-																						<span>%%=FormatCurrency(@line_discount,"en-US")=%%</span>
+																						<span>%%=FormatCurrency(@line_discount,"en-CA")=%% CAD</span>
 																					</td>
 																					%%[endif]%%
 																					<td style="font-family:Arial;font-size:10px;padding:0 0 0 0;background-color:#ffffff;color:#000000;letter-spacing:1px;font-weight:normal" align="center" valign="middle">
 																						%%[ if empty(@prod_price) then ]%%
 																							&nbsp;
 																						%%[ else ]%%
-																							<span>%%=FormatCurrency(@prod_subtotal,"en-US")=%%</span>
+																							<span>%%=FormatCurrency(@prod_subtotal,"en-CA")=%% CAD</span>
 																						%%[ endif ]%%
 																					</td>
 
@@ -478,7 +478,7 @@ UpdateDE("FromSAP_Order",2,"order_id",@order_id,"line_number",@line_number,"cons
 																				<tr>
 																					<td %%[ IF @estimate THEN ]%% colspan="8" %%[ ELSE ]%% colspan="7" %%[ ENDIF ]%% style="padding:5px 0 5px; 0;background-color:#ffffff;color:#000000;" align="right" valign="middle">
 																						<!-- @DISCOUNT IN THIS INSTANCE IS MAPPED TO THE DATA EXTENSION FIELD FOR order_discount ; assumes this is the total. Value was double mapped before. -->
-																						<font style="font-family:Arial;font-size:10px;letter-spacing:1px;font-weight:normal;">Total product discounts on this order:&nbsp;&nbsp;%%=FormatCurrency(@order_discounts, "en-US")=%%</font>
+																						<font style="font-family:Arial;font-size:10px;letter-spacing:1px;font-weight:normal;">Total product discounts on this order:&nbsp;&nbsp;%%=FormatCurrency(@order_discounts, "en-CA")=%% CAD</font>
 																					</td>
 																					<td colspan="1" style="font-family:Arial;font-size:10px;padding:5px 0 5px 0;background-color:#ffffff;color:#000000;letter-spacing:1px;font-weight:normal;" align="center" valign="middle">
 																						&nbsp;
@@ -530,7 +530,7 @@ UpdateDE("FromSAP_Order",2,"order_id",@order_id,"line_number",@line_number,"cons
 																	%%[ if empty(@total_before_discounts) then ]%%
 																		&nbsp;
 																	%%[ else ]%%
-																		<span>%%=FormatCurrency(@total_before_discounts, "en-US") =%%</span>
+																		<span>%%=FormatCurrency(@total_before_discounts, "en-CA") =%% CAD</span>
 																	%%[ endif ]%%
 																</td>
 															</tr>
@@ -543,9 +543,9 @@ UpdateDE("FromSAP_Order",2,"order_id",@order_id,"line_number",@line_number,"cons
 																		&nbsp;
 																	%%[ else ]%%
 																		%%[if @order_discounts > 0 then]%%
-																			<span>-%%=FormatCurrency(@order_discounts, "en-US")=%%</span>
+																			<span>-%%=FormatCurrency(@order_discounts, "en-CA")=%%< CAD/span>
 																		%%[ elseif @order_discounts < 0 then ]%%
-																			<span>%%=FormatCurrency(@order_discounts, "en-US")=%%</span>
+																			<span>%%=FormatCurrency(@order_discounts, "en-CA")=%% CAD</span>
 																		%%[ endif ]%%
 																	%%[ endif ]%%
 																</td>
@@ -557,7 +557,7 @@ UpdateDE("FromSAP_Order",2,"order_id",@order_id,"line_number",@line_number,"cons
 																	%%[ if empty(@subtotal) then ]%%
 																		&nbsp;
 																	%%[ else ]%%
-																		<span>%%=FormatCurrency(@subtotal, "en-US")=%%</span>
+																		<span>%%=FormatCurrency(@subtotal, "en-CA")=%% CAD</span>
 																	%%[ endif ]%%
 																</td>
 															</tr>
@@ -567,7 +567,7 @@ UpdateDE("FromSAP_Order",2,"order_id",@order_id,"line_number",@line_number,"cons
 																	%%[ if empty(@shipping) then ]%%
 																		&nbsp;
 																	%%[ else ]%%
-																		<span>%%=FormatCurrency(@shipping, "en-US")=%%</span>
+																		<span>%%=FormatCurrency(@shipping, "en-CA")=%% CAD</span>
 																	%%[ endif ]%%
 																</td>
 															</tr>
@@ -578,7 +578,7 @@ UpdateDE("FromSAP_Order",2,"order_id",@order_id,"line_number",@line_number,"cons
 																	%%[ if empty(@handling_fee) then ]%%
 																		&nbsp;
 																	%%[ else ]%%
-																		<span>%%=FormatCurrency(@handling_fee, "en-US")=%%</span>
+																		<span>%%=FormatCurrency(@handling_fee, "en-CA")=%% CAD</span>
 																	%%[ endif ]%%
 																</td>
 															</tr>
@@ -589,7 +589,7 @@ UpdateDE("FromSAP_Order",2,"order_id",@order_id,"line_number",@line_number,"cons
 																	%%[ if empty(@tax) then ]%%
 																		&nbsp;
 																	%%[ else ]%%
-																		<span>%%=FormatCurrency(@tax,"en-US")=%%</span>
+																		<span>%%=FormatCurrency(@tax,"en-CA")=%% CAD</span>
 																	%%[ endif ]%%
 																</td>
 															</tr>
@@ -599,7 +599,7 @@ UpdateDE("FromSAP_Order",2,"order_id",@order_id,"line_number",@line_number,"cons
 																	%%[ if empty(@grand_total) then ]%%
 																		&nbsp;
 																	%%[ else ]%%
-																		<span>%%=FormatCurrency(@grand_total, "en-US")=%%</span>
+																		<span>%%=FormatCurrency(@grand_total, "en-CA")=%% CAD</span>
 																	%%[ endif ]%%
 																</td>
 															</tr>
@@ -619,11 +619,11 @@ UpdateDE("FromSAP_Order",2,"order_id",@order_id,"line_number",@line_number,"cons
 									<tr>
 										<td style="padding:21px 0 0 70px;color:#454545;line-height:15px;font-size:10.5px;height:125px" align="left" height="125px" valign="top">
 											Contact Information:<br>
-											YETI<br>
-											<a>PO Box 163686</a><br>
-											<a>Austin, TX 78716</a><br>
-											Phone: <a href="tel:512.394.9384">512.394.0222</a><br>
-											<a style="color:#454545;text-decoration:none;font-weight:bold;font-family:Arial;" href="mailto:YETI%20Sales%20%3Csales@yeti.com%3E?subject=Sales">sales@yeti.com</a>
+											YETI Canada Limited<br>
+											<a>302 Town Centre Blvd. #100</a><br>
+											<a>Markham, ON L3R OE8</a><br>
+											<!--Phone: <a href="tel:512.394.9384">512.394.0222</a><br>-->
+											<a style="color:#454545;text-decoration:none;font-weight:bold;font-family:Arial;" href="mailto:YETI%20Sales%20%3Ccanadasales@yeti.com%3E?subject=Sales">canadasales@yeti.com</a>
 										</td>
 
 										<td style="padding:21px 0px 0px 170px;color:#454545;line-height:15px;font-size:10.5px;height:125px;" align="left" height="125px" valign="top">
@@ -648,7 +648,7 @@ UpdateDE("FromSAP_Order",2,"order_id",@order_id,"line_number",@line_number,"cons
 				<td style="padding:15px 0 20px 0;color:#606060;line-height:18px;font-size:10.5px;font-family:Arial;font-weight:normal" align="center" valign="top"><custom name="opencounter" type="tracking">&#169; %%=Datepart(now(),"year")=%% YETI All Rights Reserved</td>
 			</tr>
 			<tr>
-				<td style="margin:0;padding:15px 0 0 0;color:#606060;line-height:18px;font-size:10.5px;font-family:Arial;font-weight:normal" align="center" valign="top">This email was sent to:  %%emailaddr%% <br><b>Email Sent By:</b> %%Member_Busname%%<br>%%Member_Addr%% %%Member_City%%, %%Member_State%%, %%Member_PostalCode%%, %%Member_Country%%</td>
+				<td style="margin:0;padding:15px 0 0 0;color:#606060;line-height:18px;font-size:10.5px;font-family:Arial;font-weight:normal" align="center" valign="top">This email was sent to:  %%emailaddr%% <br><b>Email Sent By:</b> YETI Canada<br>302 Town Centre Blvd. #100 Markham, ON L3R OE8</td>
 			</tr>
 		</table>
 	</body>

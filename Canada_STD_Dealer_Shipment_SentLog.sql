@@ -9,11 +9,12 @@ ON s.CUSTOMER_ID = a.ENSX_EDM__SAP_Customer_Number__c
 WHERE c.SFMC_Shipping__c = 'True'
 AND s.shipping_id = s.CUSTOMER_ID
 AND a.RecordTypeId = '012i0000000yQvFAAU'
-AND (sales_ofc='STD' OR sales_ofc='HYB')
-AND s.DOC_TYPE = 'TA'
+AND (sales_ofc='STD' OR sales_ofc='DSD' OR sales_ofc='OEM' OR sales_ofc='national account')
+AND (s.DOC_TYPE = 'TA' OR s.DOC_TYPE = 'L2')
 AND s.consumed = 'false'
-AND s.[Date Added] >= Convert(datetime, '2017-01-20')
+AND DATEDIFF(dd, s.[Date Added], GETDATE()) < 15
 AND c.Email IS NOT NULL
+AND s.sales_org = '1500'
 
 UNION
 
@@ -28,11 +29,12 @@ ON s.CUSTOMER_ID = a.ENSX_EDM__SAP_Customer_Number__c
 WHERE c.SFMC_Shipping__c = 'True'
 AND s.shipping_id <> s.CUSTOMER_ID
 AND a.RecordTypeId = '012i0000000yQvFAAU'
-AND (sales_ofc='STD' OR sales_ofc='HYB')
-AND s.DOC_TYPE = 'TA'
+AND (sales_ofc='STD' OR sales_ofc='DSD' OR sales_ofc='OEM' OR sales_ofc='national account')
+AND (s.DOC_TYPE = 'TA' OR s.DOC_TYPE = 'L2')
 AND s.consumed = 'false'
-AND s.[Date Added] >= Convert(datetime, '2017-01-20')
+AND DATEDIFF(dd, s.[Date Added], GETDATE()) < 15
 AND c.Email IS NOT NULL
+AND s.sales_org = '1500'
 
 UNION
 
@@ -47,8 +49,9 @@ ON s.shipping_id = a.SAP_Ship_To_Number__c
 WHERE c.SFMC_Shipping__c = 'True'
 AND s.shipping_id <> s.CUSTOMER_ID
 AND a.RecordTypeId = '012i0000000Bsh5AAC'
-AND (sales_ofc='STD' OR sales_ofc='HYB')
-AND s.DOC_TYPE = 'TA'
+AND (sales_ofc='STD' OR sales_ofc='DSD' OR sales_ofc='OEM' OR sales_ofc='national account')
+AND (s.DOC_TYPE = 'TA' OR s.DOC_TYPE = 'L2')
 AND s.consumed = 'false'
-AND s.[Date Added] >= Convert(datetime, '2017-01-20')
+AND DATEDIFF(dd, s.[Date Added], GETDATE()) < 15
 AND c.Email IS NOT NULL
+AND s.sales_org = '1500'

@@ -11,22 +11,12 @@ ON s.customer_number = a.ENSX_EDM__SAP_Customer_Number__c
 WHERE c.SFMC_Invoice__c = 'True'
 AND s.shipping_id = s.customer_number
 AND a.RecordTypeId = '012i0000000yQvFAAU'
-AND
-(
-   (
-      (sales_ofc='STD' OR sales_ofc='HYB')
-      AND (s.DOC_TYPE = 'TA' OR s.DOC_TYPE = 'ZCLC')
-   )
-   OR
-   (
-      sales_ofc='BDV'
-      AND (s.DOC_TYPE = 'TA' OR s.DOC_TYPE = 'ZCLC')
-      AND s.credit_card_number = 'Net due in 30 days'
-   )
-)
+AND (sales_ofc='STD' OR sales_ofc='DSD' OR sales_ofc='OEM' OR sales_ofc='national account')
+AND (s.DOC_TYPE = 'TA' OR s.DOC_TYPE = 'F2')
 AND s.consumed = 'false'
 AND DATEDIFF(dd, s.[Date Added], GETDATE()) < 15
 AND c.Email IS NOT NULL
+AND s.sales_org = '1500'
 
 UNION
 
@@ -43,22 +33,12 @@ ON s.customer_number = a.ENSX_EDM__SAP_Customer_Number__c
 WHERE c.SFMC_Invoice__c = 'True'
 AND s.shipping_id <> s.customer_number
 AND a.RecordTypeId = '012i0000000yQvFAAU'
-AND
-(
-   (
-      (sales_ofc='STD' OR sales_ofc='HYB')
-      AND (s.DOC_TYPE = 'TA' OR s.DOC_TYPE = 'ZCLC')
-   )
-   OR
-   (
-      sales_ofc='BDV'
-      AND (s.DOC_TYPE = 'TA' OR s.DOC_TYPE = 'ZCLC')
-      AND s.credit_card_number = 'Net due in 30 days'
-   )
-)
+AND (sales_ofc='STD' OR sales_ofc='DSD' OR sales_ofc='OEM' OR sales_ofc='national account')
+AND (s.DOC_TYPE = 'TA' OR s.DOC_TYPE = 'F2')
 AND s.consumed = 'false'
 AND DATEDIFF(dd, s.[Date Added], GETDATE()) < 15
 AND c.Email IS NOT NULL
+AND s.sales_org = '1500'
 
 UNION
 
@@ -75,19 +55,9 @@ ON s.shipping_id = a.SAP_Ship_To_Number__c
 WHERE c.SFMC_Invoice__c = 'True'
 AND s.shipping_id <> s.customer_number
 AND a.RecordTypeId = '012i0000000Bsh5AAC'
-AND
-(
-   (
-      (sales_ofc='STD' OR sales_ofc='HYB')
-      AND (s.DOC_TYPE = 'TA' OR s.DOC_TYPE = 'ZCLC')
-   )
-   OR
-   (
-      sales_ofc='BDV'
-      AND (s.DOC_TYPE = 'TA' OR s.DOC_TYPE = 'ZCLC')
-      AND s.credit_card_number = 'Net due in 30 days'
-   )
-)
+AND (sales_ofc='STD' OR sales_ofc='DSD' OR sales_ofc='OEM' OR sales_ofc='national account')
+AND (s.DOC_TYPE = 'TA' OR s.DOC_TYPE = 'F2')
 AND s.consumed = 'false'
 AND DATEDIFF(dd, s.[Date Added], GETDATE()) < 15
 AND c.Email IS NOT NULL
+AND s.sales_org = '1500'

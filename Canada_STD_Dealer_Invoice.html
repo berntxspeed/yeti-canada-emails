@@ -120,7 +120,7 @@ set @email_content = concat("<!DOCTYPE html>
 																	<td style=""border:0;padding:0 0 0 14px;color:#e4e4e4;line-height:18px;font-size:11.5px;font-family:Arial; height: 91px; width: 240px;"" align=""left"" height=""91px"" valign=""middle"" width=""240px"">
 																		Questions about your order?<br>
 																		Call us at <a href=""tel:512.394.0222"">512.394.0222</a> or email
-																		<a style=""text-decoration:none;color:#f3f3f3;font-weight:bold"" title=""Contact Us by Email"" href=""mailto:YETI%20Coolers%20Customer%20Service%20%3Csales@yeti.com%3E?subject=YETI+Sales"">sales@yeti.com</a><br>
+																		<a style=""text-decoration:none;color:#f3f3f3;font-weight:bold"" title=""Contact Us by Email"" href=""mailto:YETI%20Coolers%20Customer%20Service%20%3Ccanadasales@yeti.com%3E?subject=YETI+Sales"">canadasales@yeti.com</a><br>
 																		Mon-Fri 8 AM - 5 PM CST
 																	</td>
 																</tr>
@@ -152,10 +152,10 @@ set @email_content = concat("<!DOCTYPE html>
 																							<tr>
 																								<td style=""font-family:Arial;font-weight:normal;font-size:14px;color:#515151;line-height:normal;"">
 																									<span style=""font-weight:bold;"">Remittance Address</span><br>
-
-YETI<br>
-																									PO Box 843780<br>
-																									Dallas, TX 75284-3780<br>
+                                                  YETI Canada Limited<br>
+																									C/O Lockbox #918070<br>
+																									PO Box 4090 STN A<br>
+                                                  Toronto, ON M5W 0E9<br>
 																								</td>
 																							</tr>
 																						</table>
@@ -361,11 +361,7 @@ set @shipTo_country = Field(@invoiceRow,"shipTo_country")
 																																			%%[ IF Length(@shipment_tracking_number) > 0 THEN ]%%
 %%[ set @email_content = concat(@email_content,"                      <tr>
 																																				<td style=""padding-right:10px;"">Master Tracking Number(s):</td>
-																																				<td style=""text-overflow:visible;""><a href=""",RedirectTo(@shipment_tracking_link),""">",@shipment_tracking_number,"</a></td>
-																																			</tr>
-																																			<tr>
-																																				<td style=""padding-right:10px;"">&nbsp;</td>
-																																				<td align=""left""><a style=""border:0; text-decoration:none;"" href=""",RedirectTo(@shipment_tracking_link),"""><img style=""width:120px;"" width=""120px"" border=""0"" src=""http://image.test.exacttarget.com/lib/fe5c15707362027c7c12/m/1/track-shipment.png"" /></a></td>
+																																				<td style=""text-overflow:visible;"">",@shipment_tracking_number,"</td>
 																																			</tr>")]%%
 																																			%%[ ENDIF ]%%
 																																			%%[ if Length(@shipment_tracking_number_2) > 0 then ]%%
@@ -375,11 +371,7 @@ set @shipTo_country = Field(@invoiceRow,"shipTo_country")
 																																			</tr>
 																																			<tr>
 																																				<td style=""padding-right:10px;"">&nbsp;</td>
-																																				<td style=""text-overflow:visible;""><a href=""",RedirectTo(@shipment_tracking_link_2),""">",@shipment_tracking_number_2,"</a></td>
-																																			</tr>
-																																			<tr>
-																																				<td style=""padding-right:10px;"">&nbsp;</td>
-																																				<td align=""left""><a style=""border:0; text-decoration:none;"" href=""",RedirectTo(@shipment_tracking_link_2),"""><img style=""width:120px;"" width=""120px"" border=""0"" src=""http://image.test.exacttarget.com/lib/fe5c15707362027c7c12/m/1/track-shipment.png"" /></a></td>
+																																				<td style=""text-overflow:visible;"">",@shipment_tracking_number_2,"</td>
 																																			</tr>
 																																			<tr>
 																																				<td style=""line-height:8px; padding-right:10px;"">&nbsp;</td>
@@ -389,11 +381,7 @@ set @shipTo_country = Field(@invoiceRow,"shipTo_country")
 																																			%%[ if Length(@shipment_tracking_number_3) > 0 then ]%%
 %%[ set @email_content = concat(@email_content,"                      <tr>
 																																				<td style=""padding-right:10px;"">&nbsp;</td>
-																																				<td style=""text-overflow:visible;""><a href=""",RedirectTo(@shipment_tracking_link_3),""">",@shipment_tracking_number_3,"</a></td>
-																																			</tr>
-																																			<tr>
-																																				<td style=""padding-right:10px;"">&nbsp;</td>
-																																				<td align=""left""><a style=""border:0; text-decoration:none;"" href=""",RedirectTo(@shipment_tracking_link_3),"""><img style=""width:120px;"" width=""120px"" border=""0"" src=""http://image.test.exacttarget.com/lib/fe5c15707362027c7c12/m/1/track-shipment.png"" /></a></td>
+																																				<td style=""text-overflow:visible;"">",@shipment_tracking_number_3,"</td>
 																																			</tr>")]%%
 																																			%%[ endif ]%%
 %%[ set @email_content = concat(@email_content,"                      <tr>
@@ -532,18 +520,18 @@ set @email_content = concat(@email_content,"                    </td>
 																															</table>
 																														</td>
 																														<td style=""font-family:Arial;font-size:10px;padding:0 0 0 0;background-color:#ffffff;color:#000000;font-weight:normal"" align=""center"" valign=""top"">
-																															",FormatCurrency(@price,"en-US"),"
+																															",FormatCurrency(@price,"en-CA")," CAD
 																														</td>
 																														<td style=""font-family:Arial;font-size:10px;padding:0 0 0 0;background-color:#ffffff;color:#000000;font-weight:normal"" align=""center"" valign=""top"">
 																															",@qty,"
 																														</td>")
 																														if @total_discounts > 0 then
 set @email_content = concat(@email_content,"            <td style=""font-family:Arial;font-size:10px;padding:0 0 0 0;background-color:#ffffff;color:#000000;font-weight:normal"" align=""center"" valign=""top"">
-																															",FormatCurrency(@discount,"en-US"),"
+																															",FormatCurrency(@discount,"en-CA")," CAD
 																														</td>")
 																														 endif
 set @email_content = concat(@email_content,"            <td style=""font-family:Arial;font-size:10px;padding:0 0 0 0;background-color:#ffffff;color:#000000;font-weight:normal"" align=""center"" valign=""top"">
-																															",FormatCurrency(@line_subtotal,"en-US"),"
+																															",FormatCurrency(@line_subtotal,"en-CA")," CAD
 																														</td>
 																													</tr>
 																													<tr>
@@ -565,14 +553,22 @@ set @email_content = concat(@email_content,"            <td style=""font-family:
 																													%%[if @total_discounts > 0 then]%%
 %%[ set @email_content = concat(@email_content,"          <tr>
 																														<td colspan=""7"" style=""padding:5px 0 5px; 0;background-color:#ffffff;color:#000000;"" align=""right"" valign=""middle"">
-																															<font style=""font-family:Arial;font-size:10px;font-weight:normal;"">Total product discounts on this order:&nbsp;&nbsp;",FormatCurrency(@shipment_discounts,"en-US"),"</font>
+																															<font style=""font-family:Arial;font-size:10px;font-weight:normal;"">Total product discounts on this order:&nbsp;&nbsp;",FormatCurrency(@shipment_discounts,"en-CA")," CAD</font>
 																														</td>
 																														<td colspan=""1"" style=""font-family:Arial;font-size:10px;padding:5px 0 5px 0;background-color:#ffffff;color:#000000;font-weight:normal;"" align=""center"" valign=""middle"">
 																															&nbsp;
 																														</td>
 																													</tr>")]%%
 																													%%[endif]%%
-%%[ set @email_content = concat(@email_content,"          </tbody>
+%%[ set @email_content = concat(@email_content,"          <tr>
+                                                            <td colspan=""7"" style=""padding:5px 0 5px; 0;background-color:#ffffff;color:#000000;"" align=""right"" valign=""middle"">
+                                                              <font style=""font-family:Arial;font-size:10px;font-weight:normal;"">YETI Canada Limited &#124; 1123123523523434 QST &#124; 4950384509384509458039845 GST</font>
+                                                            </td>
+                                                            <td colspan=""1"" style=""font-family:Arial;font-size:10px;padding:5px 0 5px 0;background-color:#ffffff;color:#000000;font-weight:normal;"" align=""center"" valign=""middle"">
+                                                              &nbsp;
+                                                            </td>
+                                                          </tr>
+                                                        </tbody>
 																											</table>
 																										</td>
 																									</tr>
@@ -615,50 +611,50 @@ set @email_content = concat(@email_content,"            <td style=""font-family:
 																						%%[if @total_before_discounts > 0 and @total_discounts > 0 then]%%
 %%[ set @email_content = concat(@email_content,"<tr>
 																							<td style=""padding:7px 0 0 0px; text-align:right; font-family:Arial,Helvetica,sans-serif; font-weight:normal; font-size:11.4px; color:#000000; line-height:19px;"">Total Before Discount:</td>
-																							<td style=""padding:7px 10px 0 0px; text-align:right; font-family:Arial,Helvetica,sans-serif; font-weight:normal; font-size:11.4px; color:#000000; line-height:19px;"">",FormatCurrency(@total_before_discounts,"en-US"),"</td>
+																							<td style=""padding:7px 10px 0 0px; text-align:right; font-family:Arial,Helvetica,sans-serif; font-weight:normal; font-size:11.4px; color:#000000; line-height:19px;"">",FormatCurrency(@total_before_discounts,"en-CA")," CAD</td>
 																						</tr>")]%%
 																						%%[ endif ]%%
 																						%%[if @discounts != 0 then]%%
 %%[ set @email_content = concat(@email_content,"<tr>
 																							<td style=""padding:7px 0 0 0px; text-align:right; font-family:Arial,Helvetica,sans-serif; font-weight:normal; font-size:11.4px; color:#000000; line-height:19px;"">Discounts:</td>
-																							<td style=""padding:7px 10px 0 0px; text-align:right; font-family:Arial,Helvetica,sans-serif; font-weight:normal; font-size:11.4px; color:#000000; line-height:19px;"">-",FormatCurrency(@discounts,"en-US"),"</td>
+																							<td style=""padding:7px 10px 0 0px; text-align:right; font-family:Arial,Helvetica,sans-serif; font-weight:normal; font-size:11.4px; color:#000000; line-height:19px;"">-",FormatCurrency(@discounts,"en-CA")," CAD</td>
 																						</tr>")]%%
 																						%%[ endif ]%%
 %%[ set @email_content = concat(@email_content,"<tr>
 																							<td style=""padding:7px 0 0 0px; text-align:right; font-family:Arial,Helvetica,sans-serif; font-weight:normal; font-size:11.4px; color:#000000; line-height:19px;"">Subtotal:</td>
-																							<td style=""padding:7px 10px 0 0px; text-align:right; font-family:Arial,Helvetica,sans-serif; font-weight:normal; font-size:11.4px; color:#000000; line-height:19px;"">",FormatCurrency(@subtotal,"en-US"),"</td>
+																							<td style=""padding:7px 10px 0 0px; text-align:right; font-family:Arial,Helvetica,sans-serif; font-weight:normal; font-size:11.4px; color:#000000; line-height:19px;"">",FormatCurrency(@subtotal,"en-CA")," CAD</td>
 																						</tr>
 																						<tr>
 																							<td style=""padding:7px 0 0 0px; text-align:right; font-family:Arial,Helvetica,sans-serif; font-weight:normal; font-size:11.4px; color:#000000; line-height:19px;"">Shipping:</td>
-																							<td style=""padding:7px 10px 0 0px; text-align:right; font-family:Arial,Helvetica,sans-serif; font-weight:normal; font-size:11.4px; color:#000000; line-height:19px;"">",FormatCurrency(@shipping_fee,"en-US"),"</td>
+																							<td style=""padding:7px 10px 0 0px; text-align:right; font-family:Arial,Helvetica,sans-serif; font-weight:normal; font-size:11.4px; color:#000000; line-height:19px;"">",FormatCurrency(@shipping_fee,"en-CA")," CAD</td>
 																						</tr>")]%%
 																						%%[if @handling_fee > 0 then]%%
 %%[ set @email_content = concat(@email_content,"<tr>
 																							<td style=""padding:7px 0 0 0px; text-align:right; font-family:Arial,Helvetica,sans-serif; font-weight:normal; font-size:11.4px; color:#000000; line-height:19px;"">Handling Fee:</td>
-																							<td style=""padding:7px 10px 0 0px; text-align:right; font-family:Arial,Helvetica,sans-serif; font-weight:normal; font-size:11.4px; color:#000000; line-height:19px;"">",FormatCurrency(@handling_fee,"en-US"),"</td>
+																							<td style=""padding:7px 10px 0 0px; text-align:right; font-family:Arial,Helvetica,sans-serif; font-weight:normal; font-size:11.4px; color:#000000; line-height:19px;"">",FormatCurrency(@handling_fee,"en-CA")," CAD</td>
 																						</tr>")]%%
 																						%%[ endif ]%%
 %%[ set @email_content = concat(@email_content,"<tr>
 																							<td style=""padding:7px 0 11px 0px; text-align:right; font-family:Arial,Helvetica,sans-serif; font-weight:normal; font-size:11.4px; color:#000000; line-height:19px;"">Tax:</td>
-																							<td style=""padding:7px 10px 11px 0px; text-align:right; font-family:Arial,Helvetica,sans-serif; font-weight:normal; font-size:11.4px; color:#000000; line-height:19px;"">",FormatCurrency(@tax,"en-US"),"</td>
+																							<td style=""padding:7px 10px 11px 0px; text-align:right; font-family:Arial,Helvetica,sans-serif; font-weight:normal; font-size:11.4px; color:#000000; line-height:19px;"">",FormatCurrency(@tax,"en-CA")," CAD</td>
 																						</tr>")]%%
 																						%%[if @display_extra_summary then]%%
 %%[ set @email_content = concat(@email_content,"<tr>
 																							<td style=""padding:11px 0 0 0;background-color:#003b61;text-transform:uppercase;text-align:right;font-family:Arial,Helvetica,sans-serif;font-weight:bold;font-size:13px;line-height:15px;color:#ffffff;"">GRAND TOTAL:</td>
-																							<td style=""padding:11px 10px 0 0;text-align:right;background-color:#003b61;font-family:Arial,Helvetica,sans-serif;font-weight:bold;font-size:13px;line-height:19px;color:#ffffff;"">",FormatCurrency(@grand_total,"en-US"),"</td>
+																							<td style=""padding:11px 10px 0 0;text-align:right;background-color:#003b61;font-family:Arial,Helvetica,sans-serif;font-weight:bold;font-size:13px;line-height:19px;color:#ffffff;"">",FormatCurrency(@grand_total,"en-CA")," CAD</td>
 																						</tr>
 																						<tr>
 																							<td style=""padding:7px 0 0 0;background-color:#003b61;text-transform:uppercase;text-align:right;font-family:Arial,Helvetica,sans-serif;font-weight:bold;font-size:13px;line-height:15px;color:#ffffff;"">PAYMENTS:</td>
-																							<td style=""padding:7px 10px 0 0;text-align:right;background-color:#003b61;font-family:Arial,Helvetica,sans-serif;font-weight:bold;font-size:13px;line-height:19px;color:#ffffff;"">",FormatCurrency(@payments,"en-US"),"</td>
+																							<td style=""padding:7px 10px 0 0;text-align:right;background-color:#003b61;font-family:Arial,Helvetica,sans-serif;font-weight:bold;font-size:13px;line-height:19px;color:#ffffff;"">",FormatCurrency(@payments,"en-CA")," CAD</td>
 																						</tr>
 																						<tr>
 																							<td style=""padding:7px 0 11px 0;background-color:#003b61;text-transform:uppercase;text-align:right;font-family:Arial,Helvetica,sans-serif;font-weight:bold;font-size:13px;line-height:15px;color:#ffffff;"">INVOICE BALANCE:</td>
-																							<td style=""padding:7px 10px 11px 0;text-align:right;background-color:#003b61;font-family:Arial,Helvetica,sans-serif;font-weight:bold;font-size:13px;line-height:19px;color:#ffffff;"">",FormatCurrency(@invoice_balance,"en-US"),"</td>
+																							<td style=""padding:7px 10px 11px 0;text-align:right;background-color:#003b61;font-family:Arial,Helvetica,sans-serif;font-weight:bold;font-size:13px;line-height:19px;color:#ffffff;"">",FormatCurrency(@invoice_balance,"en-CA")," CAD</td>
 																						</tr>")]%%
 																						%%[ else ]%%
 %%[ set @email_content = concat(@email_content,"<tr>
 																							<td style=""padding:14px 0 14px 0;background-color:#003b61;text-transform:uppercase;text-align:right;font-family:Arial,Helvetica,sans-serif;font-weight:bold;font-size:13px;line-height:15px;color:#ffffff;"">GRAND TOTAL:</td>
-																							<td style=""padding:14px 10px 14px 0;text-align:right;background-color:#003b61;font-family:Arial,Helvetica,sans-serif;font-weight:bold;font-size:13px;line-height:19px;color:#ffffff;"">",FormatCurrency(@grand_total,"en-US"),"</td>
+																							<td style=""padding:14px 10px 14px 0;text-align:right;background-color:#003b61;font-family:Arial,Helvetica,sans-serif;font-weight:bold;font-size:13px;line-height:19px;color:#ffffff;"">",FormatCurrency(@grand_total,"en-CA")," CAD</td>
 																						</tr>")]%%
 																						%%[ endif ]%%
 %%[ set @email_content = concat(@email_content,"</table>
@@ -686,7 +682,7 @@ set @email_content = concat(@email_content,"            <td style=""font-family:
 														Contact Information:<br>
 
 														Phone: <a href=""tel:512.394.9384"">512.394.0222</a><br>
-														<a style=""color:#454545;text-decoration:none;font-weight:bold;font-family:Arial;"" href=""mailto:YETI%20Sales%20%3Csales@yeti.com%3E?subject=Sales"">sales@yeti.com</a>
+														<a style=""color:#454545;text-decoration:none;font-weight:bold;font-family:Arial;"" href=""mailto:YETI%20Sales%20%3Ccanadasales@yeti.com%3E?subject=Sales"">canadasales@yeti.com</a>
 													</td>
 
 													<td style=""padding:21px 0px 0px 170px;color:#454545;line-height:15px;font-size:10.5px;height:125px;"" align=""left"" height=""125px"" valign=""top"">
@@ -714,7 +710,7 @@ set @email_content = concat(@email_content,"            <td style=""font-family:
 					<td style=""padding:15px 0 20px 0;color:#606060;line-height:18px;font-size:10.5px;font-family:Arial;font-weight:normal"" align=""center"" valign=""top""><custom name=""opencounter"" type=""tracking"">&#169; ",Datepart(now(),"year")," YETI All Rights Reserved</td>
 				</tr>
 				<tr>
-					<td style=""margin:0;padding:15px 0 0 0;color:#606060;line-height:18px;font-size:10.5px;font-family:Arial;font-weight:normal"" align=""center"" valign=""top"">This email was sent to:  ",emailaddr," <br><b>Email Sent By:</b> ",Member_Busname,"<br>",Member_Addr," ",Member_City,", ",Member_State,", ",Member_PostalCode,", ",Member_Country,"</td>
+					<td style=""margin:0;padding:15px 0 0 0;color:#606060;line-height:18px;font-size:10.5px;font-family:Arial;font-weight:normal"" align=""center"" valign=""top"">This email was sent to:  ",emailaddr," <br><b>Email Sent By:</b> YETI Canada<br>302 Town Centre Blvd. #100 Markham, ON L3R OE8</td>
 				</tr>
 			</tbody>
 		</table>
@@ -729,7 +725,7 @@ SET @pdfNameInFTP = Concat("STD_DLR_Invoice_",@invoice,"___cust",@customer_id,"_
 set @pdfNameInFTP = Replace(@pdfNameInFTP,' ','_')
 
 var @http_status
-set @http_status = HTTPPost(concat("http://pdfgenprod.yeti.com/pdf/", @pdfNameInFTP), "text/html", @email_content, @callStatus)
+set @http_status = HTTPPost(concat("http://pdfgentest.testyeti.com/pdf/", @pdfNameInFTP), "text/html", @email_content, @callStatus)
 /*set @http_status = HTTPPost(concat("http://yeti-pdf-generator.herokuapp.com/pdf/", @pdfNameInFTP), "text/html", @email_content, @callStatus)*/
 
 ]%%
