@@ -19,8 +19,8 @@ AND
    )
    OR
    (
-      sales_ofc='BVD'
-      AND (s.DOC_TYPE = 'TA' AND s.DOC_TYPE = 'ZCLC')
+      sales_ofc='BDV'
+      AND (s.DOC_TYPE = 'TA' OR s.DOC_TYPE = 'ZCLC')
       AND LOWER(s.credit_card_number) LIKE '%in 30 days%'
    )
 )
@@ -52,8 +52,8 @@ AND
    )
    OR
    (
-      sales_ofc='BVD'
-      AND (s.DOC_TYPE = 'TA' AND s.DOC_TYPE = 'ZCLC')
+      sales_ofc='BDV'
+      AND (s.DOC_TYPE = 'TA' OR s.DOC_TYPE = 'ZCLC')
       AND LOWER(s.credit_card_number) LIKE '%in 30 days%'
    )
 )
@@ -85,8 +85,8 @@ AND
    )
    OR
    (
-      sales_ofc='BVD'
-      AND (s.DOC_TYPE = 'TA' AND s.DOC_TYPE = 'ZCLC')
+      sales_ofc='BDV'
+      AND (s.DOC_TYPE = 'TA' OR s.DOC_TYPE = 'ZCLC')
       AND LOWER(s.credit_card_number) LIKE '%in 30 days%'
    )
 )
