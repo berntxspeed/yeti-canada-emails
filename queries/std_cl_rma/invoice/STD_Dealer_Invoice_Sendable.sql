@@ -87,7 +87,7 @@ AND
    (
       sales_ofc='BDV'
       AND (s.DOC_TYPE = 'TA' OR s.DOC_TYPE = 'ZCLC')
-     AND s.credit_card_number = 'Net due in 30 days'
+      AND s.credit_card_number = 'Net due in 30 days'
    )
 )
 AND s.consumed = 'false'
