@@ -19,6 +19,8 @@ AND s.DOC_TYPE = 'ZCLC'
 AND s.consumed = 'false'
 AND DATEDIFF(dd, s.[Date Posted], GETDATE()) < 15
 AND c.Email IS NOT NULL
+AND LOWER(SUBSTRING(s.order_id,1,1)) != 'r'
+AND s.sales_org = '1100'
 
 UNION
 
@@ -43,6 +45,8 @@ AND s.DOC_TYPE = 'ZCLC'
 AND s.consumed = 'false'
 AND DATEDIFF(dd, s.[Date Posted], GETDATE()) < 15
 AND c.Email IS NOT NULL
+AND LOWER(SUBSTRING(s.order_id,1,1)) != 'r'
+AND s.sales_org = '1100'
 
 UNION
 
@@ -67,3 +71,5 @@ AND s.DOC_TYPE = 'ZCLC'
 AND s.consumed = 'false'
 AND DATEDIFF(dd, s.[Date Posted], GETDATE()) < 15
 AND c.Email IS NOT NULL
+AND LOWER(SUBSTRING(s.order_id,1,1)) != 'r'
+AND s.sales_org = '1100'

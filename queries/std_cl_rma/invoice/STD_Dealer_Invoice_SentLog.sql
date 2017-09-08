@@ -19,14 +19,15 @@ AND
    )
    OR
    (
-      sales_ofc='BDV'
-      AND (s.DOC_TYPE = 'TA' OR s.DOC_TYPE = 'ZCLC')
-      AND s.credit_card_number = 'Net due in 30 days'
+      sales_ofc='BVD'
+      AND (s.DOC_TYPE = 'TA' AND s.DOC_TYPE = 'ZCLC')
+      AND LOWER(s.credit_card_number) LIKE '%in 30 days%'
    )
 )
 AND s.consumed = 'false'
-AND s.[Date Added] >= Convert(datetime, '2017-01-20')
+AND DATEDIFF(dd, s.[Date Added], GETDATE()) < 15
 AND c.Email IS NOT NULL
+AND s.sales_org = '1100'
 
 UNION
 
@@ -51,14 +52,15 @@ AND
    )
    OR
    (
-      sales_ofc='BDV'
-      AND (s.DOC_TYPE = 'TA' OR s.DOC_TYPE = 'ZCLC')
-      AND s.credit_card_number = 'Net due in 30 days'
+      sales_ofc='BVD'
+      AND (s.DOC_TYPE = 'TA' AND s.DOC_TYPE = 'ZCLC')
+      AND LOWER(s.credit_card_number) LIKE '%in 30 days%'
    )
 )
 AND s.consumed = 'false'
-AND s.[Date Added] >= Convert(datetime, '2017-01-20')
+AND DATEDIFF(dd, s.[Date Added], GETDATE()) < 15
 AND c.Email IS NOT NULL
+AND s.sales_org = '1100'
 
 UNION
 
@@ -83,11 +85,12 @@ AND
    )
    OR
    (
-      sales_ofc='BDV'
-      AND (s.DOC_TYPE = 'TA' OR s.DOC_TYPE = 'ZCLC')
-      AND s.credit_card_number = 'Net due in 30 days'
+      sales_ofc='BVD'
+      AND (s.DOC_TYPE = 'TA' AND s.DOC_TYPE = 'ZCLC')
+      AND LOWER(s.credit_card_number) LIKE '%in 30 days%'
    )
 )
 AND s.consumed = 'false'
-AND s.[Date Added] >= Convert(datetime, '2017-01-20')
+AND DATEDIFF(dd, s.[Date Added], GETDATE()) < 15
 AND c.Email IS NOT NULL
+AND s.sales_org = '1100'
