@@ -27,6 +27,7 @@ AND
 AND s.consumed = 'false'
 AND DATEDIFF(dd, s.[Date Added], GETDATE()) < 15
 AND c.Email IS NOT NULL
+AND s.sales_org = '1100'
 
 UNION
 
@@ -59,6 +60,7 @@ AND
 AND s.consumed = 'false'
 AND DATEDIFF(dd, s.[Date Added], GETDATE()) < 15
 AND c.Email IS NOT NULL
+AND s.sales_org = '1100'
 
 UNION
 
@@ -91,3 +93,4 @@ AND
 AND s.consumed = 'false'
 AND DATEDIFF(dd, s.[Date Added], GETDATE()) < 15
 AND c.Email IS NOT NULL
+AND s.sales_org = '1100'

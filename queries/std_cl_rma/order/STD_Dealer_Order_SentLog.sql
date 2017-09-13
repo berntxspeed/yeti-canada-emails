@@ -17,8 +17,10 @@ AND a.RecordTypeId = '012i0000000yQvFAAU'
 AND (sales_ofc='STD' OR sales_ofc='HYB')
 AND s.DOC_TYPE = 'TA'
 AND s.consumed = 'false'
-AND s.[Date Posted] >= Convert(datetime, '2017-01-20')
+AND DATEDIFF(dd, s.[Date Posted], GETDATE()) < 15
 AND c.Email IS NOT NULL
+AND LOWER(SUBSTRING(s.order_id,1,1)) != 'r'
+AND s.sales_org = '1100'
 
 UNION
 
@@ -41,8 +43,10 @@ AND a.RecordTypeId = '012i0000000yQvFAAU'
 AND (sales_ofc='STD' OR sales_ofc='HYB')
 AND s.DOC_TYPE = 'TA'
 AND s.consumed = 'false'
-AND s.[Date Posted] >= Convert(datetime, '2017-01-20')
+AND DATEDIFF(dd, s.[Date Posted], GETDATE()) < 15
 AND c.Email IS NOT NULL
+AND LOWER(SUBSTRING(s.order_id,1,1)) != 'r'
+AND s.sales_org = '1100'
 
 UNION
 
@@ -65,5 +69,7 @@ AND a.RecordTypeId = '012i0000000Bsh5AAC'
 AND (sales_ofc='STD' OR sales_ofc='HYB')
 AND s.DOC_TYPE = 'TA'
 AND s.consumed = 'false'
-AND s.[Date Posted] >= Convert(datetime, '2017-01-20')
+AND DATEDIFF(dd, s.[Date Posted], GETDATE()) < 15
 AND c.Email IS NOT NULL
+AND LOWER(SUBSTRING(s.order_id,1,1)) != 'r'
+AND s.sales_org = '1100'

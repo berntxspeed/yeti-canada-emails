@@ -9,3 +9,4 @@ AND s.doc_type = 'ZARF'
 AND s.consumed = 'false'
 AND s."Date Posted" >= Convert(datetime, '2017-01-20')
 AND s.Email_OTC IS NOT NULL
+AND s.sales_org = '1100'
