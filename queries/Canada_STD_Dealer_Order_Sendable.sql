@@ -14,7 +14,7 @@ ON s.customer_id = a.ENSX_EDM__SAP_Customer_Number__c
 WHERE c.SFMC_Order_Confirmation__c = 'True'
 AND s.shipping_id = s.customer_id
 AND a.RecordTypeId = '012i0000000yQvFAAU'
-AND (sales_ofc='STD' OR sales_ofc='DSD' OR sales_ofc='OEM' OR sales_ofc='national account')
+AND (sales_ofc='STD' OR sales_ofc='DSD' OR sales_ofc='OEM' OR sales_ofc='NTL')
 AND s.DOC_TYPE = 'TA'
 AND s.consumed = 'false'
 AND DATEDIFF(dd, s.[Date Posted], GETDATE()) < 15
@@ -40,7 +40,7 @@ ON s.customer_id = a.ENSX_EDM__SAP_Customer_Number__c
 WHERE c.SFMC_Order_Confirmation__c = 'True'
 AND s.shipping_id <> s.customer_id
 AND a.RecordTypeId = '012i0000000yQvFAAU'
-AND (sales_ofc='STD' OR sales_ofc='DSD' OR sales_ofc='OEM' OR sales_ofc='national account')
+AND (sales_ofc='STD' OR sales_ofc='DSD' OR sales_ofc='OEM' OR sales_ofc='NTL')
 AND s.DOC_TYPE = 'TA'
 AND s.consumed = 'false'
 AND DATEDIFF(dd, s.[Date Posted], GETDATE()) < 15
@@ -66,7 +66,7 @@ ON s.shipping_id = a.SAP_Ship_To_Number__c
 WHERE c.SFMC_Order_Confirmation__c = 'True'
 AND s.shipping_id <> s.customer_id
 AND a.RecordTypeId = '012i0000000Bsh5AAC'
-AND (sales_ofc='STD' OR sales_ofc='DSD' OR sales_ofc='OEM' OR sales_ofc='national account')
+AND (sales_ofc='STD' OR sales_ofc='DSD' OR sales_ofc='OEM' OR sales_ofc='NTL')
 AND s.DOC_TYPE = 'TA'
 AND s.consumed = 'false'
 AND DATEDIFF(dd, s.[Date Posted], GETDATE()) < 15
